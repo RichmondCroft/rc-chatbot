@@ -3,10 +3,12 @@ import "./heading.css";
 export interface headingProp {
   type: String;
   children: ReactNode;
-  size:String
+  size: String;
 }
-export const Heading: React.FC<headingProp> = ({ children, type="primary",size="medium" }) => {
-  return (<div className={`heading ${type} ${size}`}>{children}</div>);
+export const Heading: React.FC<headingProp> = ({
+  children,
+  type = "primary",
+  size = "medium",
+}) => {
+  return <div className={`heading ${type} ${size}`}>{children}</div>;
 };
-
-
