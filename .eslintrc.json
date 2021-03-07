@@ -1,44 +1,42 @@
 {
   "env": {
-    "browser": true,
-    "es2021": true
+      "browser": true,
+      "es2021": true,
+      "jest": true
   },
-  "extends": ["plugin:react/recommended", "react-app", "airbnb"],
+  "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "prettier"
+    ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": [
+      "react",
+      "@typescript-eslint",
+      "jest"
+  ],
+  "rules": {
+    // note you must disable the base rule as it can report incorrect errors
+    "no-use-before-define": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "import/extensions": [1, 
+      "never"
+    ]
+  },
   "settings": {
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  },
-  "rules": {
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "react/jsx-filename-extension": [
-      2,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
-    "linebreak-style": 0,
-    "comma-dangle": ["error", "never"],
-    "object-curly-newline": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "off"
   }
 }
