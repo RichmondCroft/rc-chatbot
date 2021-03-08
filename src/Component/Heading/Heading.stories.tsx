@@ -1,5 +1,5 @@
 // import React from 'react'
-import { Heading, headingProp } from "./Heading";
+import { Heading, HeadingProp } from "./Heading";
 import { Meta, Story } from "@storybook/react";
 
 export default {
@@ -19,7 +19,7 @@ export default {
     },
   },
 } as Meta;
-const Template: Story<headingProp> = (args) => <Heading {...args} />;
+const Template: Story<HeadingProp> = (args) => <Heading {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

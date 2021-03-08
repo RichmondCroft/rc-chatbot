@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
 import "./button.css";
-export interface buttonProp {
+export interface ButtonProp {
   type: String;
   children: ReactNode;
   size: String;
   onclick: () => void;
 }
-export const Button: React.FC<buttonProp> = ({
+export const Button: React.FC<ButtonProp> = ({
   children,
   type = "primary",
   size = "medium",

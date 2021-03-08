@@ -1,5 +1,5 @@
 // import React from 'react'
-import { Button, buttonProp } from "./Button";
+import { Button, ButtonProp } from "./Button";
 import { Meta, Story } from "@storybook/react";
 
 export default {
@@ -10,7 +10,7 @@ export default {
     onClick: { action: "clicked" },
   },
 } as Meta;
-const Template: Story<buttonProp> = (args) => <Button {...args} />;
+const Template: Story<ButtonProp> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

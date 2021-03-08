@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
 import "./heading.css";
-export interface headingProp {
+export interface HeadingProp {
   type: String;
   children: ReactNode;
   size: String;
 }
-export const Heading: React.FC<headingProp> = ({
+export const Heading: React.FC<HeadingProp> = ({
   children,
   type = "primary",
   size = "medium",
