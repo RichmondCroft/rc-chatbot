@@ -11,6 +11,7 @@
 # production
 /build
 
+/src/App.sublime-workspace
 # misc
 .DS_Store
 .env.local
