@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import "./button.css";
 
 export interface ButtonProps {
-  id: String;
+  id: string;
   type: String;
   children: ReactNode;
   size: String;
