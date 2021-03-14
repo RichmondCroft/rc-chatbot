@@ -4,7 +4,7 @@ import "./heading.css";
 export interface HeadingProp {
   type: String;
   children: ReactNode;
-  size: String;
+  size?: String;
 }
 export const Heading: React.FC<HeadingProp> = ({
   children,

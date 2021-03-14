@@ -1,0 +1,35 @@
+.ChatBubble {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 1px 2px 4px rgb(64, 64, 64);
+  max-width: 75%;
+}
+
+.chat-white {
+  background-color: rgb(238, 238, 238);
+  color: #000;
+}
+
+.chat-primary {
+  background-color: rgb(213, 235, 255);
+  color: #000;
+}
+
+.chat-dark {
+  background-color: rgb(50, 50, 50);
+  color: #fff;
+}
+
+.sender-me {
+  align-self: flex-end;
+  border-radius: 0.25rem 0.25rem 0 0.25rem;
+}
+
+.sender-other {
+  align-self: flex-start;
+  border-radius: 0.25rem 0.25rem 0.25rem 0;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
