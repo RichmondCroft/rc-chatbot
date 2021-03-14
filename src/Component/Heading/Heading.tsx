@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import "./heading.css";
 import styled from 'styled-components';
 
 export interface HeadingProp {
@@ -23,7 +22,7 @@ background-color:${props=>
   width:${props=>
     props.size==="small"?'40rem':
     props.size==="medium"?'50rem':
-    props.size==="large"?'70rem':'40rem'
+    props.size==="large"?'70rem':'4 0rem'
   };
   font-size: 3rem;
   color: black;
