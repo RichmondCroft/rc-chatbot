@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from 'styled-components';
-
+import {color,Button_h_w} from '../../styles';
 export interface ButtonProps {
   id: string;
   children: ReactNode;
@@ -9,21 +9,21 @@ export interface ButtonProps {
 }
 export const ButtonComp = styled('button')<ButtonProps>`
  background-color:${props=>
-  props.id==="primary-button"?'#00b4d8':
-    props.id==="secondary-button"?'#03045e':
-    props.id==="danger-button"?'#e63946':
-    props.id==="success-button"?'#52b788':
-    props.id==="warning-button"?'#ffb703':'#fff'
+  props.id==="primary-button"?color.primary:
+    props.id==="secondary-button"?color.secondary:
+    props.id==="danger-button"?color.danger:
+    props.id==="success-button"?color.success:
+    props.id==="warning-button"?color.warning:color.primary
   };
   height:${props=>
-    props.size==="small"?'2rem':
-    props.size==="medium"?'3rem':
-    props.size==="large"?'5rem':'2rem'
+    props.size==="small"?Button_h_w.height.small:
+    props.size==="medium"?Button_h_w.height.medium:
+    props.size==="large"?Button_h_w.height.large: Button_h_w.height.small
   };
   width:${props=>
-    props.size==="small"?'10rem':
-    props.size==="medium"?'15rem':
-    props.size==="large"?'20rem':'10rem'
+    props.size==="small"?Button_h_w.width.small:
+    props.size==="medium"?Button_h_w.width.medium:
+    props.size==="large"?Button_h_w.width.large:Button_h_w.width.small
   };
   font-size: 1rem;
   color: white;

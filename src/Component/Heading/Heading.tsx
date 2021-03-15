@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from 'styled-components';
-
+import {color,Heading_h_w} from '../../styles';
 export interface HeadingProp {
   id: string;
   children: ReactNode;
@@ -8,21 +8,21 @@ export interface HeadingProp {
 }
 export const HeadingComp = styled('div')<HeadingProp>`
 background-color:${props=>
-  props.id==="primary-heading"?'#00b4d8':
-    props.id==="secondary-heading"?'#03045e':
-    props.id==="danger-heading"?'#e63946':
-    props.id==="success-heading"?'#52b788':
-    props.id==="warning-heading"?'#ffb703':'#fff'
+  props.id==="primary-heading"?color.primary:
+    props.id==="secondary-heading"?color.secondary:
+    props.id==="danger-heading"?color.danger:
+    props.id==="success-heading"?color.success:
+    props.id==="warning-heading"?color.warning:color.primary
   };
   height:${props=>
-    props.size==="small"?'3rem':
-    props.size==="medium"?'4rem':
-    props.size==="large"?'6rem':'3rem'
+    props.size==="small"?Heading_h_w.height.small:
+    props.size==="medium"?Heading_h_w.height.medium:
+    props.size==="large"?Heading_h_w.height.large:Heading_h_w.height.small
   };
   width:${props=>
-    props.size==="small"?'40rem':
-    props.size==="medium"?'50rem':
-    props.size==="large"?'70rem':'4 0rem'
+    props.size==="small"?Heading_h_w.width.small:
+    props.size==="medium"?Heading_h_w.width.medium:
+    props.size==="large"?Heading_h_w.width.large:Heading_h_w.width.small
   };
   font-size: 3rem;
   color: black;
