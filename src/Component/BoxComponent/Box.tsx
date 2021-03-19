@@ -1,29 +1,62 @@
 import React, { ReactNode } from "react";
-import styled from 'styled-components';
-import {color,Box_h_w} from '../../styles';
+import styled from "styled-components";
+import { color, boxHW } from "../../styles";
 
 export interface BoxProps {
   id: string;
   children: ReactNode;
   size: String;
 };
-export const BoxComp = styled('div')<BoxProps>`
-background-color:${props=>
-  props.id==="primary-box"?color.primary:
-    props.id==="secondary-box"?color.secondary:
-    props.id==="danger-box"?color.danger:
-    props.id==="success-box"?color.success:
-    props.id==="warning-box"?color.warning:color.primary
+export const BoxComp = styled("div") <BoxProps>`
+background-color:${props => {
+    if (props.id === "primary-box") {
+      return color.primary;
+    } if (props.id === "secondary-box") {
+      return color.secondary;
+    }
+    if (props.id === "danger-box") {
+      return color.danger;
+    }
+    if (props.id === "success-box") {
+      return color.success;
+    }
+    if (props.id === "warning-box") {
+      return color.warning;
+    }
+    return color.primary;
+
+  }
+
   };
-  height:${props=>
-    props.size==="small"?Box_h_w.height.small:
-    props.size==="medium"?Box_h_w.height.medium:
-    props.size==="large"?Box_h_w.height.large:Box_h_w.height.small
+  height:${props => {
+    if (props.size === "small") {
+      return boxHW.height.small;
+    } if (props.size === "medium") {
+      return boxHW.height.medium;
+    }
+    if (props.size === "large") {
+      return boxHW.height.large;
+    }
+
+    return boxHW.height.medium;
+
+  }
+
   };
-  width:${props=>
-    props.size==="small"?Box_h_w.width.small:
-    props.size==="medium"?Box_h_w.width.medium:
-    props.size==="large"?Box_h_w.width.large:Box_h_w.width.small
+  width:${props => {
+    if (props.size === "small") {
+      return boxHW.width.small;
+    } if (props.size === "medium") {
+      return boxHW.width.medium;
+    }
+    if (props.size === "large") {
+      return boxHW.width.large;
+    }
+
+    return boxHW.width.medium;
+
+  }
+
   };
   color:white;
   border:2px solid black;
@@ -37,5 +70,5 @@ export const Box: React.FC<BoxProps> = ({
   size = "small",
 }: BoxProps) => (
 
-  <BoxComp size={size}  id ={id}>{children}</BoxComp>
+  <BoxComp size={size} id={id}>{children}</BoxComp>
 );

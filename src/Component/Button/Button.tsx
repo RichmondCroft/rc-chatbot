@@ -1,29 +1,59 @@
 import React, { ReactNode } from "react";
-import styled from 'styled-components';
-import {color,Button_h_w} from '../../styles';
+import styled from "styled-components";
+import { color, buttonHW } from "../../styles";
+
 export interface ButtonProps {
   id: string;
   children: ReactNode;
   size: String;
   // onclick: () => void;
-}
-export const ButtonComp = styled('button')<ButtonProps>`
- background-color:${props=>
-  props.id==="primary-button"?color.primary:
-    props.id==="secondary-button"?color.secondary:
-    props.id==="danger-button"?color.danger:
-    props.id==="success-button"?color.success:
-    props.id==="warning-button"?color.warning:color.primary
+};
+export const ButtonComp = styled("button") <ButtonProps>`
+ background-color:${props => {
+    if (props.id === "primary-button") {
+      return color.primary;
+    } if (props.id === "secondary-button") {
+      return color.secondary;
+    }
+    if (props.id === "danger-button") {
+      return color.danger;
+    }
+    if (props.id === "success-button") {
+      return color.success;
+    }
+    if (props.id === "warning-button") {
+      return color.warning;
+    }
+    return color.primary;
+
+  }
   };
-  height:${props=>
-    props.size==="small"?Button_h_w.height.small:
-    props.size==="medium"?Button_h_w.height.medium:
-    props.size==="large"?Button_h_w.height.large: Button_h_w.height.small
-  };
-  width:${props=>
-    props.size==="small"?Button_h_w.width.small:
-    props.size==="medium"?Button_h_w.width.medium:
-    props.size==="large"?Button_h_w.width.large:Button_h_w.width.small
+  height:${props => {
+    if (props.size === "small") {
+      return buttonHW.height.small;
+    } if (props.size === "medium") {
+      return buttonHW.height.medium;
+    }
+    if (props.size === "large") {
+      return buttonHW.height.large;
+    }
+
+    return buttonHW.height.medium;
+
+  }};
+  width:${props => {
+    if (props.size === "small") {
+      return buttonHW.width.small;
+    } if (props.size === "medium") {
+      return buttonHW.width.medium;
+    }
+    if (props.size === "large") {
+      return buttonHW.width.large;
+    }
+
+    return buttonHW.width.medium;
+
+  }
   };
   font-size: 1rem;
   color: white;
@@ -32,12 +62,15 @@ export const ButtonComp = styled('button')<ButtonProps>`
   border: 0;
   border-radius: 0.5rem;
 `;
+// const handleClick = () => {
+//   console.log("button Clicked");
+// };
 
 export const Button: React.FC<ButtonProps> = ({
-  id="primary-button",
-  children="button",
+  id = "primary-button",
+  children = "button",
   size = "medium",
   // onclick,
 }: ButtonProps) => (
-  <ButtonComp id={id} size={size}>{children} </ButtonComp>
+  <ButtonComp id={id} size={size}>{children}</ButtonComp>
 );

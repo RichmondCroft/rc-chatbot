@@ -4,8 +4,8 @@ export const color={
     danger:"#00b4d8",
     success:"#00b4d8",
     warning:"#00b4d8",
-}
-export const Box_h_w = {
+};
+export const boxHW = {
       height:{
         small:"10rem",
         medium:"30rem",
@@ -16,8 +16,8 @@ export const Box_h_w = {
         medium:"30rem",
         large:"50rem"
       }
-}
-export const Heading_h_w = {
+};
+export const headingHW = {
       height:{
         small:"3rem",
         medium:"4rem",
@@ -28,8 +28,8 @@ export const Heading_h_w = {
         medium:"50rem",
         large:"70rem"
       }
-}
-export const Button_h_w = {
+};
+export const buttonHW = {
       height:{
         small:"2rem",
         medium:"3rem",
@@ -40,4 +40,4 @@ export const Button_h_w = {
         medium:"15rem",
         large:"20rem"
       }
-}
+};

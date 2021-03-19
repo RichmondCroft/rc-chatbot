@@ -9,40 +9,40 @@ export default {
 } as Meta;
 const Template: Story<BoxProps> = (args) => <Box {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 
 Primary.args = {
-   id:'primary-box',
-   size:'small',
-   children:'Primarybox'
+   id:"primary-box",
+   size:"small",
+   children:"Primarybox"
 };
-export const Secondary = Template.bind({})
+export const Secondary = Template.bind({});
 
 Secondary.args = {
-   id:'secondary-box',
-   size:'small',
-   children:'Secondarybox'
+   id:"secondary-box",
+   size:"smal",
+   children:"Secondarybox"
 };
-export const Danger = Template.bind({})
+export const Danger = Template.bind({});
 
 Danger.args = {
-   id:'danger-box',
-   size:'small',
-   children:'Dnagerbox'
+   id:"danger-box",
+   size:"small",
+   children:"Dangerbox"
 };
-export const Warning = Template.bind({})
+export const Warning = Template.bind({});
 
 Warning.args = {
-   id:'warning-box',
-   size:'small',
-   children:'Warningbox'
+   id:"warning-box",
+   size:"small",
+   children:"Warningbox"
 };
-export const Success = Template.bind({})
+export const Success = Template.bind({});
 
 Success.args = {
-   id:'success-box',
-   size:'small',
-   children:'Successbox'
+   id:"success-box",
+   size:"small",
+   children:"Successbox"
 };
 
 
