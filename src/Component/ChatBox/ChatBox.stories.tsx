@@ -6,9 +6,6 @@ import { ChatBubble } from "../ChatBubble/ChatBubble";
 export default {
   title: "Chat Box",
   component: ChatBox,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 } as Meta;
 
 const dummyData = [
@@ -60,16 +57,10 @@ const dummyData = [
 const Template: Story<ChatBoxProps> = (args) => (
   <ChatBox {...args}>
     {dummyData.map((msg) => (
-      <ChatBubble
-        key={msg.id}
-        variant={msg.from === "me" ? "chat-white" : "chat-primary"}
-        sender={msg.from}
-      >
-        {msg.message}
-      </ChatBubble>
+      <ChatBubble>{msg.message}</ChatBubble>
     ))}
   </ChatBox>
 );
 
 export const Primary = Template.bind({});
-Primary.args = { variant: "chatBox-primary", backgroundColor: "white" };
+Primary.args = {};
