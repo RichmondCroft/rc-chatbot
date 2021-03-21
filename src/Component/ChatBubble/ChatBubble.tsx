@@ -12,7 +12,6 @@ export interface ChatBubbleProps {
 const ChatBubbleWrapper = styled.div`
   position: relative;
   margin-top: 1rem;
-  max-width: 70%;
   display: flex;
 `;
 
