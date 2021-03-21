@@ -11,8 +11,8 @@ export interface ChatBoxProps {
 const ChatBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 800px;
-  max-height: 500px;
+  max-width: 80vw;
+  max-height: 75vh;
   margin: 0 auto;
   padding: 0.5em;
   gap: 1rem;
@@ -21,7 +21,7 @@ const ChatBoxWrapper = styled.div`
 `;
 
 const MessagesWrapper = styled.div`
-  height: 500px;
+  flex: 1;
   overflow-y: scroll;
   scroll-behavior: smooth;
 
