@@ -2,10 +2,10 @@ import React, { ReactNode } from "react";
 import "./button.css";
 
 export interface ButtonProps {
-  id: String;
-  type: String;
+  id: string;
+  type: string;
   children: ReactNode;
-  size: String;
+  size: string;
   onclick: () => void;
 }
 export const Button: React.FC<ButtonProps> = ({
