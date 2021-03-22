@@ -13,19 +13,3 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: "Primary chat bubble",
 };
-
-// export const White = Template.bind({});
-// White.args = {
-//   variant: "chat-white",
-//   children: "White chat bubble",
-//   sender: "other",
-//   rounded: false,
-// };
-
-// export const Dark = Template.bind({});
-// Dark.args = {
-//   variant: "chat-dark",
-//   children: "Dark chat bubble",
-//   sender: "other",
-//   rounded: true,
-// };

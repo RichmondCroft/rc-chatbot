@@ -2,22 +2,21 @@ import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 import { ChatBubble } from "../ChatBubble/ChatBubble";
-import { actor } from "../dummyData";
+import { Actor } from "../../types";
+import { COLOR, SPACER, BORDER, BORDER_RADIUS } from "../../variables";
 
 export interface ChatBoxProps {
-  dummyData: actor[];
+  dummyData: Actor[];
 }
 
 const ChatBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 80vw;
-  max-height: 75vh;
-  margin: 0 auto;
-  padding: 0.5em;
-  gap: 1rem;
-  background-color: rgb(244, 245, 247);
-  border: 2px solid #000;
+  padding: calc(0.5 * ${SPACER});
+  margin: ${SPACER};
+  gap: ${SPACER};
+  background-color: ${COLOR.grey};
+  border: ${BORDER};
 `;
 
 const MessagesWrapper = styled.div`
@@ -26,32 +25,32 @@ const MessagesWrapper = styled.div`
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
-    width: 0em;
+    width: 0rem;
   }
 `;
 
 const InputWrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: ${SPACER};
 `;
 
 const MessageInput = styled.textarea`
   flex: 1;
-  padding: 0.5rem 1rem;
-  border: 2px solid #000;
+  padding: calc(0.5 * ${SPACER}) ${SPACER};
+  border: ${BORDER};
 `;
 
 const EnterButton = styled.button`
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #000;
-  border-radius: 3px;
+  padding: calc(0.5 * ${SPACER}) calc(1.5 * ${SPACER});
+  border: ${BORDER};
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const ChatBox = (props: ChatBoxProps) => {
   const { dummyData } = props;
 
   const [message, setMessage] = useState<string>("");
-  const [messageArray, setMessageArray] = useState<Array<actor>>([]);
+  const [messageArray, setMessageArray] = useState<Array<Actor>>([]);
 
   const messagesWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -64,11 +63,11 @@ export const ChatBox = (props: ChatBoxProps) => {
   }, [messageArray.length]);
 
   const sendMessage = () => {
-    if (message === "") {
+    if (!message) {
       return;
     }
 
-    const messageObj: actor = {
+    const messageObj: Actor = {
       messageId: 1,
       id: "user",
       displayName: "John Doe",
@@ -85,7 +84,7 @@ export const ChatBox = (props: ChatBoxProps) => {
   };
 
   const botMessage = () => {
-    const botObj: actor = {
+    const botObj: Actor = {
       messageId: 1,
       id: "chatbot",
       displayName: "Bot",

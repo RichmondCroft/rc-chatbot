@@ -1,12 +1,6 @@
-export interface actor {
-  messageId: number;
-  id: string;
-  displayName: string;
-  align: string;
-  message: string;
-}
+import { Actor } from "../types";
 
-export const dummyData: actor[] = [
+const dummyData: Actor[] = [
   {
     messageId: 1,
     id: "chatbot",
@@ -79,3 +73,5 @@ export const dummyData: actor[] = [
     message: "Fusce pretium erat eget diam mattis, nec tempus felis laoreet.",
   },
 ];
+
+export default dummyData;

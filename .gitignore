@@ -10,6 +10,7 @@
 
 # production
 /build
+/.netlify
 
 /src/App.sublime-workspace
 # misc

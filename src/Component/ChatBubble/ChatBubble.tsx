@@ -1,6 +1,15 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
+import {
+  SPACER,
+  COLOR,
+  BORDER_RADIUS,
+  BOX_SHADOW,
+  FONT_SIZE,
+  FONT_WEIGHT,
+} from "../../variables";
+
 export interface ChatBubbleProps {
   children: ReactNode;
   messageId: number;
@@ -11,26 +20,26 @@ export interface ChatBubbleProps {
 
 const ChatBubbleWrapper = styled.div`
   position: relative;
-  margin-top: 1rem;
+  margin-top: ${SPACER};
   display: flex;
 `;
 
 const StyledChatBubble = styled.div`
   display: inline-block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 3px;
-  font-size: 0.8rem;
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgb(23 43 77 / 20%) 0px 1px 1px, rgb(23 43 77 / 20%) 0px 0px 1px;
+  padding: calc(0.5 * ${SPACER}) calc(0.75 * ${SPACER});
+  border-radius: ${BORDER_RADIUS};
+  font-size: ${FONT_SIZE.chatBubbleText};
+  background-color: ${COLOR.white};
+  box-shadow: ${BOX_SHADOW};
 `;
 
 const ChatBubbleHeader = styled.div`
   position: absolute;
-  top: -1.1rem;
-  left: 0.25rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #000;
+  top: calc(-1.1 * ${SPACER});
+  left: calc(0.25 * ${SPACER});
+  font-size: ${FONT_SIZE.displayName};
+  font-weight: ${FONT_WEIGHT.displayName};
+  color: ${COLOR.black};
 `;
 
 export const ChatBubble: React.FC<ChatBubbleProps> = (

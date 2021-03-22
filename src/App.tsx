@@ -3,16 +3,13 @@ import styled from "styled-components";
 
 import { ChatBox } from "./Component/ChatBox/ChatBox";
 
-import { dummyData } from "./Component/dummyData";
+import dummyData from "./Component/dummyData";
 
-const AppWrapper = styled.div`
-  text-align: center;
-`;
+const AppWrapper = styled.div``;
 
 function App() {
   return (
     <AppWrapper>
-      <h1>Chatbot</h1>
       <ChatBox dummyData={dummyData} />
     </AppWrapper>
   );

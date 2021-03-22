@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import { ChatBox, ChatBoxProps } from "./ChatBox";
 import { ChatBubble } from "../ChatBubble/ChatBubble";
 
-import { dummyData } from "../dummyData";
+import dummyData from "../dummyData";
 
 export default {
   title: "Chat Box",
