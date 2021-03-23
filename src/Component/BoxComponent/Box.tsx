@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { color, boxHW } from "../../styles";
+import { COLOR, boxHW, TextColor } from "../../styles";
 
 export interface BoxProps {
   id: string;
@@ -9,25 +9,23 @@ export interface BoxProps {
 };
 export const BoxComp = styled("div") <BoxProps>`
 background-color:${props => {
-    if (props.id === "primary-box") {
-      return color.primary;
-    } if (props.id === "secondary-box") {
-      return color.secondary;
-    }
-    if (props.id === "danger-box") {
-      return color.danger;
-    }
-    if (props.id === "success-box") {
-      return color.success;
-    }
-    if (props.id === "warning-box") {
-      return color.warning;
-    }
-    return color.primary;
-
+  switch(props.id){
+    case "primary-box":
+      return COLOR.primary;
+    case "secondary-box":
+      return COLOR.secondary;
+    case "danger-box":
+      return COLOR.danger;
+    case "success-box":
+      return COLOR.success;
+    case "warning-box":
+      return COLOR.warning;
+    default:
+      return COLOR.primary;    
   }
+  
 
-  };
+  }};
   height:${props => {
     if (props.size === "small") {
       return boxHW.height.small;
@@ -58,10 +56,9 @@ background-color:${props => {
   }
 
   };
-  color:white;
-  border:2px solid black;
+  color:${TextColor.primary};
+  border:2px solid ${TextColor.secondary};
   text-align:center;
-  border
 `;
 
 export const Box: React.FC<BoxProps> = ({

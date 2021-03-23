@@ -1,4 +1,4 @@
-export const color={
+export const COLOR={
     primary:"#00b4d8",
     secondary:"#00b4d8",
     danger:"#00b4d8",
@@ -40,4 +40,25 @@ export const buttonHW = {
         medium:"15rem",
         large:"20rem"
       }
+};
+
+export const TextColor = {
+   primary:"#ffffff",
+   secondary:"#000000"
+};
+export const SPACE = {
+  XXS: "0.2rem",
+  XS: "0.4rem",
+  S: "0.8rem",
+  M: "1rem",
+  L: "1.2rem",
+  XL: "1.5rem",
+  XXL: "2rem"
+};
+export const FONT_SIZE = {
+  S: "0.5rem",
+  M: "1rem",
+  L: "1.5rem",
+  XL:"2.2rem"
+
 };

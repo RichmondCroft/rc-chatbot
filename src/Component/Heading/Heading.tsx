@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { color, headingHW } from "../../styles";
+import { COLOR, headingHW, TextColor, SPACE, FONT_SIZE } from "../../styles";
 
 export interface HeadingProp {
   id: string;
@@ -9,21 +9,21 @@ export interface HeadingProp {
 }
 export const HeadingComp = styled("div") <HeadingProp>`
 background-color:${props => {
-    if (props.id === "primary-heading") {
-      return color.primary;
-    } if (props.id === "secondary-heading") {
-      return color.secondary;
+    switch(props.id){
+        case "primary-heading":
+          return COLOR.primary;
+        case "secondary-heading":
+          return COLOR.secondary;
+        case "danger-heading":
+          return COLOR.danger;
+        case "success-heading":
+          return COLOR.success;
+        case "warning-heading":
+          return COLOR.warning;
+        default:
+          return COLOR.primary;          
     }
-    if (props.id === "danger-heading") {
-      return color.danger;
-    }
-    if (props.id === "success-heading") {
-      return color.success;
-    }
-    if (props.id === "warning-heading") {
-      return color.warning;
-    }
-    return color.primary;
+   
 
   }
 
@@ -58,10 +58,10 @@ background-color:${props => {
   }
 
   };
-  font-size: 3rem;
-  color: black;
+  font-size: ${FONT_SIZE.XL};
+  color: ${TextColor.secondary};
   text-align: center;
-  padding: 0.5rem;
+  padding: ${SPACE.XS};
 `;
 
 export const Heading: React.FC<HeadingProp> = ({

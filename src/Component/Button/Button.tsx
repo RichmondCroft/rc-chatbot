@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { color, buttonHW } from "../../styles";
+import { COLOR, buttonHW, TextColor, SPACE, FONT_SIZE } from "../../styles";
 
 export interface ButtonProps {
   id: string;
@@ -10,21 +10,20 @@ export interface ButtonProps {
 };
 export const ButtonComp = styled("button") <ButtonProps>`
  background-color:${props => {
-    if (props.id === "primary-button") {
-      return color.primary;
-    } if (props.id === "secondary-button") {
-      return color.secondary;
-    }
-    if (props.id === "danger-button") {
-      return color.danger;
-    }
-    if (props.id === "success-button") {
-      return color.success;
-    }
-    if (props.id === "warning-button") {
-      return color.warning;
-    }
-    return color.primary;
+  switch(props.id){
+    case "primary-button":
+      return COLOR.primary;
+    case "secondary-button":
+      return COLOR.secondary;
+    case "danger-button":
+      return COLOR.danger;
+    case "success-button":
+      return COLOR.success;
+    case "warning-button":
+      return COLOR.warning;
+    default:
+      return COLOR.primary;          
+}
 
   }
   };
@@ -55,12 +54,12 @@ export const ButtonComp = styled("button") <ButtonProps>`
 
   }
   };
-  font-size: 1rem;
-  color: white;
+  font-size: ${FONT_SIZE.M};
+  color: ${TextColor.primary};
   text-align: center;
-  padding: 0.2rem;
+  padding: ${SPACE.XXS};
   border: 0;
-  border-radius: 0.5rem;
+  border-radius: ${SPACE.XS};
 `;
 // const handleClick = () => {
 //   console.log("button Clicked");
