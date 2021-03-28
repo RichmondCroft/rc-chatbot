@@ -5,9 +5,17 @@ import { ChatBubble } from "../ChatBubble/ChatBubble";
 import { Actor } from "../../types";
 import { COLOR, SPACER, BORDER, BORDER_RADIUS } from "../../variables";
 
+import {Avatar} from "../Avatar/Avatar";
+import BotImg from "../../Assets/Bot.png";
+import UserImg from "../../Assets/User.png";
+
 export interface ChatBoxProps {
   dummyData: Actor[];
-}
+};
+
+export interface M{
+align:string;
+};
 
 const ChatBoxWrapper = styled.div`
   display: flex;
@@ -27,6 +35,11 @@ const MessagesWrapper = styled.div`
   &::-webkit-scrollbar {
     width: 0rem;
   }
+`;
+
+const MessageArea = styled.div<M>`
+   display:flex;
+   justify-content:${props=>props.align === "left"? "flex-start":"flex-end"};
 `;
 
 const InputWrapper = styled.div`
@@ -73,6 +86,7 @@ export const ChatBox = (props: ChatBoxProps) => {
       displayName: "John Doe",
       align: "right",
       message,
+      imgsrc: UserImg
     };
 
     setMessage("");
@@ -90,6 +104,7 @@ export const ChatBox = (props: ChatBoxProps) => {
       displayName: "Bot",
       align: "left",
       message: "Etiam a mi ullamcorper, cursus est messageId, convallis neque.",
+      imgsrc: BotImg
     };
 
     const newArr = messageArray;
@@ -108,15 +123,20 @@ export const ChatBox = (props: ChatBoxProps) => {
     <ChatBoxWrapper>
       <MessagesWrapper ref={messagesWrapperRef}>
         {messageArray.map((el) => (
-          <ChatBubble
-            key={el.message}
-            id={el.id}
-            messageId={el.messageId}
-            displayName={el.displayName}
-            align={el.align}
-          >
-            {el.message}
-          </ChatBubble>
+          <>
+            <MessageArea align={el.align}> 
+              <Avatar imgsrc={el.imgsrc} order={el.align === "left"?1:2}/>
+              <ChatBubble
+                key={el.message}
+                id={el.id}
+                messageId={el.messageId}
+                displayName={el.displayName}
+                align={el.align}
+              >
+                {el.message}
+              </ChatBubble>
+            </MessageArea>
+          </>
         ))}
       </MessagesWrapper>
       <InputWrapper>

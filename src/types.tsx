@@ -4,4 +4,5 @@ export interface Actor {
   displayName: string;
   align: string;
   message: string;
+  imgsrc:string;
 }

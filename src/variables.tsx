@@ -20,3 +20,12 @@ export const FONT_SIZE = {
 export const FONT_WEIGHT = {
   displayName: "600",
 };
+
+export const AvatarCompSize = {
+  max_height:"4rem",
+  max_width:"4rem"
+};
+export const AvatarImgSize = {
+  height:"3rem",
+  width:"3rem"
+};

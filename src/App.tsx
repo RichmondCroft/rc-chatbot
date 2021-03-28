@@ -5,6 +5,7 @@ import { ChatBox } from "./Component/ChatBox/ChatBox";
 
 import dummyData from "./Component/dummyData";
 
+
 const AppWrapper = styled.div``;
 
 function App() {
