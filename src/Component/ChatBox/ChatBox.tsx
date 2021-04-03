@@ -1,68 +1,37 @@
 import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+
+import { Actor, InputObject } from "../../types";
+import { ChatBoxWrapper, MessagesWrapper } from "./ChatBoxStyles";
+import { BOT_QUESTIONS } from "../dummyData";
 
 import { ChatBubble } from "../ChatBubble/ChatBubble";
-import { Actor } from "../../types";
-import { COLOR, SPACER, BORDER, BORDER_RADIUS } from "../../variables";
+import { TextInput } from "../Inputs/TextInput/TextInput";
+import { TextAreaInput } from "../Inputs/TextAreaInput/TextAreaInput";
+import { RadioInput } from "../Inputs/RadioInput/RadioInput";
+import { CheckboxInput } from "../Inputs/CheckboxInput/CheckboxInput";
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 
-export interface ChatBoxProps {
-  dummyData: Actor[];
-}
+import ContextModal from "../ContextModal";
 
-const ChatBoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: calc(0.5 * ${SPACER});
-  margin: ${SPACER};
-  gap: ${SPACER};
-  background-color: ${COLOR.grey};
-  border: ${BORDER};
-`;
+export interface ChatBoxProps {}
 
-const MessagesWrapper = styled.div`
-  flex: 1;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-
-  &::-webkit-scrollbar {
-    width: 0rem;
-  }
-`;
-
-const InputWrapper = styled.div`
-  display: flex;
-  gap: ${SPACER};
-`;
-
-const MessageInput = styled.textarea`
-  flex: 1;
-  padding: calc(0.5 * ${SPACER}) ${SPACER};
-  border: ${BORDER};
-`;
-
-const EnterButton = styled.button`
-  padding: calc(0.5 * ${SPACER}) calc(1.5 * ${SPACER});
-  border: ${BORDER};
-  border-radius: ${BORDER_RADIUS};
-`;
-
-export const ChatBox = (props: ChatBoxProps) => {
-  const { dummyData } = props;
-
-  const [message, setMessage] = useState<string>("");
+export const ChatBox = () => {
   const [messageArray, setMessageArray] = useState<Array<Actor>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [questionIndex, setQuestionIndex] = useState<number>(0);
 
   const messagesWrapperRef = useRef<HTMLDivElement>(null);
+  const [input, setInput] = useState<InputObject>({ type: "empty" });
 
   useEffect(() => {
     if (messageArray.length === 0) {
-      setMessageArray(dummyData);
+      botMessage();
     } else {
       scrollToBottom();
     }
-  }, [messageArray.length]);
+  }, [setMessageArray.length]);
 
-  const sendMessage = () => {
+  const sendMessage = (message: any) => {
     if (!message) {
       return;
     }
@@ -73,28 +42,30 @@ export const ChatBox = (props: ChatBoxProps) => {
       displayName: "John Doe",
       align: "right",
       message,
+      delay: 0,
+      input: {
+        type: "answer",
+      },
     };
 
-    setMessage("");
     const arr = messageArray;
     arr.push(messageObj);
     setMessageArray(arr);
-
     botMessage();
   };
 
   const botMessage = () => {
-    const botObj: Actor = {
-      messageId: 1,
-      id: "chatbot",
-      displayName: "Bot",
-      align: "left",
-      message: "Etiam a mi ullamcorper, cursus est messageId, convallis neque.",
-    };
+    setLoading(true);
+    const botObj: Actor = BOT_QUESTIONS[questionIndex];
 
-    const newArr = messageArray;
-    newArr.push(botObj);
-    setMessageArray(newArr);
+    setTimeout(() => {
+      const newArr = messageArray;
+      newArr.push(botObj);
+      setMessageArray(newArr);
+      setInput(botObj.input);
+      setQuestionIndex(questionIndex + 1);
+      setLoading(false);
+    }, botObj.delay);
   };
 
   const scrollToBottom = () => {
@@ -103,6 +74,57 @@ export const ChatBox = (props: ChatBoxProps) => {
       node.scrollTop = node.scrollHeight;
     }
   };
+
+  let inputComponent;
+  switch (input.type) {
+    case "text":
+      inputComponent = (
+        <TextInput name={input.name} sendMessage={sendMessage} />
+      );
+      break;
+
+    case "textarea":
+      inputComponent = (
+        <TextAreaInput name={input.name} sendMessage={sendMessage} />
+      );
+      break;
+
+    case "radio":
+      inputComponent = (
+        <RadioInput
+          name={input.name}
+          sendMessage={sendMessage}
+          options={input.options}
+        />
+      );
+      break;
+
+    case "checkbox":
+      inputComponent = (
+        <CheckboxInput
+          name={input.name}
+          sendMessage={sendMessage}
+          options={input.options}
+        />
+      );
+      break;
+
+    case "empty":
+      inputComponent = <div />;
+      break;
+
+    default:
+      inputComponent = (
+        <ChatBubble
+          id="loadingId"
+          messageId={1052}
+          displayName="Bot"
+          align="left"
+        >
+          <ContextModal />
+        </ChatBubble>
+      );
+  }
 
   return (
     <ChatBoxWrapper>
@@ -118,18 +140,18 @@ export const ChatBox = (props: ChatBoxProps) => {
             {el.message}
           </ChatBubble>
         ))}
+        {loading && (
+          <ChatBubble
+            id="loadingId"
+            messageId={1052}
+            displayName="Bot"
+            align="left"
+          >
+            <LoadingAnimation />
+          </ChatBubble>
+        )}
       </MessagesWrapper>
-      <InputWrapper>
-        <MessageInput
-          rows={1}
-          placeholder="Enter Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <EnterButton type="submit" onClick={sendMessage}>
-          Send
-        </EnterButton>
-      </InputWrapper>
+      {inputComponent}
     </ChatBoxWrapper>
   );
 };

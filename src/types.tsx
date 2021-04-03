@@ -4,4 +4,17 @@ export interface Actor {
   displayName: string;
   align: string;
   message: string;
+  delay?: number;
+  input: InputObject;
+}
+
+export interface InputObject {
+  type: string;
+  name?: string;
+  options?: Options[];
+}
+
+export interface Options {
+  id: number;
+  value: string;
 }

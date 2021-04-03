@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { ChatBox } from "./Component/ChatBox/ChatBox";
-
-import dummyData from "./Component/dummyData";
+import { ChatBotContext } from "./Context";
 
 const AppWrapper = styled.div``;
 
 function App() {
+  const [global, setGlobal] = useState<object>({});
+
+  const addToGlobal = (name: string, value: any) => {
+    const newGlobal = { ...global, [name]: value };
+    setGlobal(newGlobal);
+  };
+
   return (
-    <AppWrapper>
-      <ChatBox dummyData={dummyData} />
-    </AppWrapper>
+    <ChatBotContext.Provider value={{ global, addToGlobal }}>
+      <AppWrapper>
+        <ChatBox />
+      </AppWrapper>
+    </ChatBotContext.Provider>
   );
 }
 
