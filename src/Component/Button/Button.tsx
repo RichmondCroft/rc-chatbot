@@ -23,6 +23,7 @@ export const ButtonComp = styled("button") <ButtonProps>`
       return COLOR.warning;
     default:
       return COLOR.primary;          
+
 }
 
   }
