@@ -5,9 +5,6 @@ import { Heading, HeadingProp } from "./Heading";
 export default {
   component: Heading,
   title: "Heading",
-  argTypes: {
-    type: { type: "primary" },
-  },
   parameters: {
     backgrounds: {
       values: [
@@ -23,39 +20,44 @@ const Template: Story<HeadingProp> = (args) => <Heading {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: "primary",
+  id: "primary-heading",
   children: "First Story Component",
+  size:"medium"
 };
 // export const Primary = ()=>{ return (<Heading type="primary">Heading component</Heading>)};  #easier way but not responsive with realtime changes
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: "secondary",
+  id: "secondary-heading",
   children: "Type secondary in type to change color in background",
+  size: "medium",
 };
 // export const Secondary = ()=>{ return  <Heading type="secondary">Heading component</Heading>};
 export const Danger = Template.bind({});
 Danger.args = {
-  type: "danger",
+  id: "danger-heading",
   children: "Danger Type",
+  size: "medium",
 };
 // export const Danger = ()=>{  return <Heading type="danger">Heading component</Heading>};
 export const Warning = Template.bind({});
 Warning.args = {
-  type: "warning",
+  id: "warning-heading",
   children: "Warning Type",
+  size: "small",
 };
 // export const Success = ()=>{ return  <Heading type="success">Heading component</Heading>};
 export const Success = Template.bind({});
 Success.args = {
-  type: "success",
+  id: "success-heading",
   children: "success component",
+  size: "medium",
 };
 // export const Warning = ()=>{  return <Heading type="warning">Heading component</Heading>};
 
 export const Big = Template.bind({});
 Big.args = {
-  type: "success",
+  id: "success-heading",
   children: "big,medium,small are the sizes of font",
   size: "big",
 };
