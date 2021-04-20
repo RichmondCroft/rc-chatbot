@@ -1,13 +1,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import { Heading, HeadingProps } from "./Heading";
+import { Heading, HeadingProp } from "./Heading";
 
 export default {
   component: Heading,
   title: "Heading",
-  argTypes: {
-    type: { type: "primary" },
-  },
   parameters: {
     backgrounds: {
       values: [
@@ -19,41 +16,46 @@ export default {
     },
   },
 } as Meta;
-const Template: Story<HeadingProps> = (args) => <Heading {...args} />;
+const Template: Story<HeadingProp> = (args) => <Heading {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: "primary",
+  id: "primary-heading",
   children: "First Story Component",
+  size:"medium"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: "secondary",
+  id: "secondary-heading",
   children: "Type secondary in type to change color in background",
+  size: "medium",
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  type: "danger",
+  id: "danger-heading",
   children: "Danger Type",
+  size: "medium",
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  type: "warning",
+  id: "warning-heading",
   children: "Warning Type",
+  size: "small",
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  type: "success",
+  id: "success-heading",
   children: "success component",
+  size: "medium",
 };
 
 export const Big = Template.bind({});
 Big.args = {
-  type: "success",
+  id: "success-heading",
   children: "big,medium,small are the sizes of font",
   size: "big",
 };
