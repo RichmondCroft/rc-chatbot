@@ -7,7 +7,7 @@ export default {
   component: ChatBox,
 } as Meta;
 
-const Template: Story = () => <ChatBox></ChatBox>;
+const Template: Story = () => <ChatBox />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
