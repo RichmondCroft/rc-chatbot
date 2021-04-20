@@ -4,48 +4,49 @@ import { Button, ButtonProps } from "./Button";
 
 export default {
   component: Button,
+  id: "primary-button",
   title: "Button",
-  argTypes: {
-    type: { type: "primary" },
-    onClick: { action: "clicked" },
-  },
 } as Meta;
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-
 export const Primary = Template.bind({});
 Primary.args = {
-  type: "primary",
+  id: "primary-button",
   children: "Primary Button",
+  size: "small",
 };
 // export const Primary = ()=>{ return (<Heading type="primary">Heading component</Heading>)};  #easier way but not responsive with realtime changes
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  type: "secondary",
+  id: "secondary-button",
   children: "Secondary Button",
+  size: "medium",
 };
 // export const Secondary = ()=>{ return  <Heading type="secondary">Heading component</Heading>};
 export const Danger = Template.bind({});
 Danger.args = {
-  type: "danger",
+  id: "danger-button",
   children: "Danger Button",
+  size: "small",
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  type: "warning",
+  id: "warning-button",
   children: "Warning button",
+  size: "medium",
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  type: "success",
+  id: "success-button",
   children: "success button",
+  size: "large",
 };
 
-export const Big = Template.bind({});
-Big.args = {
-  type: "success",
+export const Large = Template.bind({});
+Large.args = {
+  id: "primary-button",
   children: "Button",
-  size: "big",
+  size: "large",
 };
