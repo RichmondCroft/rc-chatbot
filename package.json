@@ -53,11 +53,7 @@
     "@storybook/addon-links": "^6.1.21",
     "@storybook/node-logger": "^6.1.21",
     "@storybook/preset-create-react-app": "^3.1.6",
-<<<<<<< HEAD
     "@types/styled-components": "^5.1.9",
-=======
-    "@types/styled-components": "^5.1.8",
->>>>>>> 171542dc178782d69ad9358dc6440f2d90176fd7
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "cypress": "^6.6.0",
