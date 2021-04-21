@@ -24,7 +24,6 @@ Primary.args = {
   children: "First Story Component",
   size:"medium"
 };
-// export const Primary = ()=>{ return (<Heading type="primary">Heading component</Heading>)};  #easier way but not responsive with realtime changes
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -32,28 +31,27 @@ Secondary.args = {
   children: "Type secondary in type to change color in background",
   size: "medium",
 };
-// export const Secondary = ()=>{ return  <Heading type="secondary">Heading component</Heading>};
+
 export const Danger = Template.bind({});
 Danger.args = {
   id: "danger-heading",
   children: "Danger Type",
   size: "medium",
 };
-// export const Danger = ()=>{  return <Heading type="danger">Heading component</Heading>};
+
 export const Warning = Template.bind({});
 Warning.args = {
   id: "warning-heading",
   children: "Warning Type",
   size: "small",
 };
-// export const Success = ()=>{ return  <Heading type="success">Heading component</Heading>};
+
 export const Success = Template.bind({});
 Success.args = {
   id: "success-heading",
   children: "success component",
   size: "medium",
 };
-// export const Warning = ()=>{  return <Heading type="warning">Heading component</Heading>};
 
 export const Big = Template.bind({});
 Big.args = {

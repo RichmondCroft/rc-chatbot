@@ -5,7 +5,7 @@ import { COLOR, headingHW, TextColor, SPACE, FONT_SIZE } from "../../styles";
 export interface HeadingProp {
   id: string;
   children: ReactNode;
-  size: String;
+  size?: String;
 }
 export const HeadingComp = styled("div") <HeadingProp>`
 background-color:${props => {
