@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AvatarCompSize, AvatarImgSize } from "../../variables";
+import { AvatarCompSize, AvatarImgSize } from "../../constants";
 
 export interface ImgProps {
     imgsrc?: string;
@@ -8,8 +8,8 @@ export interface ImgProps {
 };
 
 const ImgComp = styled.div<ImgProps>`
-height:${AvatarCompSize.max_height};
-width:${AvatarCompSize.max_width};
+height:${AvatarCompSize.max_height}px;
+width:${AvatarCompSize.max_width}px;
 border-radius:50%;
 display:flex;
 align-item:center;
