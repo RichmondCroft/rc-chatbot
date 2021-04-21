@@ -8,7 +8,7 @@ import {
   BOX_SHADOW,
   FONT_SIZE,
   FONT_WEIGHT,
-} from "../../variables";
+} from "../../constants";
 
 export interface ChatBubbleProps {
   children: ReactNode;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { ChatBubble } from "../ChatBubble/ChatBubble";
 import { Actor } from "../../types";
-import { COLOR, SPACER, BORDER, BORDER_RADIUS } from "../../variables";
+import { COLOR, SPACER, BORDER, BORDER_RADIUS } from "../../constants";
 
 import {Avatar} from "../Avatar/Avatar";
 import BotImg from "../../Assets/Bot.png";
