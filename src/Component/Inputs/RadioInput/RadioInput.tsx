@@ -4,10 +4,12 @@ import { ChatBotContext } from "../../../Context";
 
 import { InputWrapper } from "../InputStyles";
 
+import { sendMessageFunc, Options } from "../../../types";
+
 export interface RadioInputProps {
   name: string | undefined;
-  sendMessage: any;
-  options: any;
+  sendMessage: sendMessageFunc;
+  options: Options[] | undefined;
 }
 
 export const RadioInput = (props: RadioInputProps) => {
@@ -35,18 +37,19 @@ export const RadioInput = (props: RadioInputProps) => {
   return (
     <InputWrapper>
       <div>
-        {options.map((option: any) => (
-          <div key={option.value}>
-            <input
-              type="radio"
-              name={name}
-              value={option.value}
-              checked={value === option.value}
-              onChange={onChangeHandler}
-            />
-            {option.value}
-          </div>
-        ))}
+        {options &&
+          options.map((option: Options) => (
+            <div key={option.value}>
+              <input
+                type="radio"
+                name={name}
+                value={option.value}
+                checked={value === option.value}
+                onChange={onChangeHandler}
+              />
+              {option.value}
+            </div>
+          ))}
       </div>
       <SubmitButton onSubmitHandler={onSubmitHandler} />
     </InputWrapper>

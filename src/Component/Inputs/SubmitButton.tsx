@@ -2,7 +2,7 @@ import React from "react";
 import { EnterButton } from "./InputStyles";
 
 export interface SubmitButtonProps {
-  onSubmitHandler: any;
+  onSubmitHandler: () => void;
 }
 
 export const SubmitButton = (props: SubmitButtonProps) => {

@@ -20,3 +20,9 @@ export const MessagesWrapper = styled.div`
     width: 0rem;
   }
 `;
+
+export const ErrorWrapper = styled.div`
+  color: red;
+  border: 1px solid red;
+  padding: 1rem;
+`;

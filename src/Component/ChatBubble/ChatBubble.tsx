@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import {
@@ -11,7 +11,7 @@ import {
 } from "../../variables";
 
 export interface ChatBubbleProps {
-  children: any;
+  children: ReactNode;
   messageId: number;
   id: string;
   displayName: string;

@@ -4,15 +4,17 @@ import { ChatBotContext } from "../../../Context";
 
 import { InputWrapper } from "../InputStyles";
 
+import { sendMessageFunc, Options } from "../../../types";
+
 export interface CheckboxInputProps {
   name: string | undefined;
-  sendMessage: any;
-  options: any;
+  sendMessage: sendMessageFunc;
+  options: Options[] | undefined;
 }
 
 export const CheckboxInput = (props: CheckboxInputProps) => {
   const { name, sendMessage, options } = props;
-  const [valueArr, setValueArr] = useState<Array<string>>([]);
+  const [valueArr, setValueArr] = useState<string[]>([]);
 
   const context = useContext(ChatBotContext);
 
@@ -44,18 +46,19 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
   return (
     <InputWrapper>
       <ul style={{ listStyle: "none" }}>
-        {options.map((el: any) => (
-          <li key={el.value}>
-            <input
-              type="checkbox"
-              key={el.id}
-              value={el.value}
-              name={name}
-              onChange={onChangeHandler}
-            />
-            {el.value}
-          </li>
-        ))}
+        {options &&
+          options.map((el: Options) => (
+            <li key={el.value}>
+              <input
+                type="checkbox"
+                key={el.id}
+                value={el.value}
+                name={name}
+                onChange={onChangeHandler}
+              />
+              {el.value}
+            </li>
+          ))}
       </ul>
       <SubmitButton onSubmitHandler={onSubmitHandler} />
     </InputWrapper>

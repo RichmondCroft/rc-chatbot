@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { Actor, InputObject } from "../../types";
-import { ChatBoxWrapper, MessagesWrapper } from "./ChatBoxStyles";
+import { ChatBoxWrapper, MessagesWrapper, ErrorWrapper } from "./ChatBoxStyles";
 import { BOT_QUESTIONS } from "../dummyData";
 
 import { ChatBubble } from "../ChatBubble/ChatBubble";
@@ -11,12 +11,8 @@ import { RadioInput } from "../Inputs/RadioInput/RadioInput";
 import { CheckboxInput } from "../Inputs/CheckboxInput/CheckboxInput";
 import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 
-import ContextModal from "../ContextModal";
-
-export interface ChatBoxProps {}
-
-export const ChatBox = () => {
-  const [messageArray, setMessageArray] = useState<Array<Actor>>([]);
+const ChatBox = () => {
+  const [messageArray, setMessageArray] = useState<Actor[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [questionIndex, setQuestionIndex] = useState<number>(0);
 
@@ -31,7 +27,7 @@ export const ChatBox = () => {
     }
   }, [setMessageArray.length]);
 
-  const sendMessage = (message: any) => {
+  const sendMessage = (message: string) => {
     if (!message) {
       return;
     }
@@ -115,14 +111,9 @@ export const ChatBox = () => {
 
     default:
       inputComponent = (
-        <ChatBubble
-          id="loadingId"
-          messageId={1052}
-          displayName="Bot"
-          align="left"
-        >
-          <ContextModal />
-        </ChatBubble>
+        <ErrorWrapper>
+          <b>Invalid input component type</b>
+        </ErrorWrapper>
       );
   }
 
@@ -155,3 +146,5 @@ export const ChatBox = () => {
     </ChatBoxWrapper>
   );
 };
+
+export default ChatBox;

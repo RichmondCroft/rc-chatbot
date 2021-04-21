@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import { ChatBox } from "./ChatBox";
+import ChatBox from "./ChatBox";
 
 export default {
   title: "Chat Box",

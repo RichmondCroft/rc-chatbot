@@ -18,3 +18,7 @@ export interface Options {
   id: number;
   value: string;
 }
+
+export interface GlobalContext {}
+
+export type sendMessageFunc = (message: string) => void;

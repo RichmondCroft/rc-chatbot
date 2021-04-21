@@ -4,9 +4,11 @@ import { ChatBotContext } from "../../../Context";
 
 import { InputWrapper } from "../InputStyles";
 
+import { sendMessageFunc } from "../../../types";
+
 export interface TextInputProps {
   name: string | undefined;
-  sendMessage: any;
+  sendMessage: sendMessageFunc;
 }
 
 export const TextInput = (props: TextInputProps) => {
