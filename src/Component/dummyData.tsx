@@ -1,4 +1,5 @@
 import { Actor } from "../types";
+import BotImg from "../Assets/Bot.png";
 
 export const BOT_QUESTIONS: Actor[] = [
   {
@@ -12,6 +13,7 @@ export const BOT_QUESTIONS: Actor[] = [
       type: "text",
       name: "name",
     },
+    imgsrc: BotImg,
   },
   {
     messageId: 2,
@@ -24,6 +26,7 @@ export const BOT_QUESTIONS: Actor[] = [
       type: "textarea",
       name: "hobbies",
     },
+    imgsrc: BotImg,
   },
   {
     messageId: 3,
@@ -41,6 +44,7 @@ export const BOT_QUESTIONS: Actor[] = [
         { id: 3, value: "Expert" },
       ],
     },
+    imgsrc: BotImg,
   },
   {
     messageId: 4,
@@ -58,6 +62,7 @@ export const BOT_QUESTIONS: Actor[] = [
         { id: 3, value: "Fullstack" },
       ],
     },
+    imgsrc: BotImg,
   },
   {
     messageId: 5,
@@ -70,6 +75,7 @@ export const BOT_QUESTIONS: Actor[] = [
       type: "default",
       name: "textInput",
     },
+    imgsrc: BotImg,
   },
   {
     messageId: 6,
@@ -82,6 +88,7 @@ export const BOT_QUESTIONS: Actor[] = [
       type: "default",
       name: "textInput",
     },
+    imgsrc: BotImg,
   },
 ];
 

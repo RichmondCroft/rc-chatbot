@@ -1,8 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { Actor, InputObject } from "../../types";
-import { ChatBoxWrapper, MessagesWrapper, ErrorWrapper } from "./ChatBoxStyles";
+import {
+  ChatBoxWrapper,
+  MessagesWrapper,
+  ErrorWrapper,
+  MessageArea,
+} from "./ChatBoxStyles";
 import { BOT_QUESTIONS } from "../dummyData";
+
+import { Avatar } from "../Avatar/Avatar";
+import UserImg from "../../Assets/User.png";
 
 import { ChatBubble } from "../ChatBubble/ChatBubble";
 import { TextInput } from "../Inputs/TextInput/TextInput";
@@ -42,6 +50,7 @@ const ChatBox = () => {
       input: {
         type: "answer",
       },
+      imgsrc: UserImg,
     };
 
     const arr = messageArray;
@@ -121,15 +130,20 @@ const ChatBox = () => {
     <ChatBoxWrapper>
       <MessagesWrapper ref={messagesWrapperRef}>
         {messageArray.map((el) => (
-          <ChatBubble
-            key={el.message}
-            id={el.id}
-            messageId={el.messageId}
-            displayName={el.displayName}
-            align={el.align}
-          >
-            {el.message}
-          </ChatBubble>
+          <>
+            <MessageArea align={el.align}>
+              <Avatar imgsrc={el.imgsrc} order={el.align === "left" ? 1 : 2} />
+              <ChatBubble
+                key={el.message}
+                id={el.id}
+                messageId={el.messageId}
+                displayName={el.displayName}
+                align={el.align}
+              >
+                {el.message}
+              </ChatBubble>
+            </MessageArea>
+          </>
         ))}
         {loading && (
           <ChatBubble

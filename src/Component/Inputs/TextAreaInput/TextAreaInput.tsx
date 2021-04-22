@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { SubmitButton } from "../SubmitButton";
 import { ChatBotContext } from "../../../Context";
 
-import { InputWrapper } from "../InputStyles";
+import { InputWrapper, StyledTextAreaInput } from "../InputStyles";
 
 import { sendMessageFunc } from "../../../types";
 
@@ -35,12 +35,11 @@ export const TextAreaInput = (props: TextAreaInputProps) => {
 
   return (
     <InputWrapper>
-      <textarea
+      <StyledTextAreaInput
         rows={2}
         name={name}
         value={value}
         onChange={onChangeHandler}
-        style={{ flex: 1 }}
       />
       <SubmitButton onSubmitHandler={onSubmitHandler} />
     </InputWrapper>

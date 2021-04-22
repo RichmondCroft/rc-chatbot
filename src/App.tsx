@@ -5,6 +5,7 @@ import ChatBox from "./Component/ChatBox/ChatBox";
 import { ChatBotContext } from "./Context";
 import { GlobalContext } from "./types";
 
+
 const AppWrapper = styled.div``;
 
 function App() {

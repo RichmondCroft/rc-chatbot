@@ -6,6 +6,7 @@ export interface Actor {
   message: string;
   delay?: number;
   input: InputObject;
+  imgsrc: string;
 }
 
 export interface InputObject {
@@ -22,3 +23,7 @@ export interface Options {
 export interface GlobalContext {}
 
 export type sendMessageFunc = (message: string) => void;
+
+export interface M {
+  align: string;
+}

@@ -8,7 +8,7 @@ import {
   BOX_SHADOW,
   FONT_SIZE,
   FONT_WEIGHT,
-} from "../../variables";
+} from "../../constants";
 
 export interface ChatBubbleProps {
   children: ReactNode;
@@ -22,6 +22,7 @@ const ChatBubbleWrapper = styled.div`
   position: relative;
   margin-top: ${SPACER};
   display: flex;
+  order:1;
 `;
 
 const StyledChatBubble = styled.div`
@@ -51,7 +52,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = (
     <ChatBubbleWrapper
       style={{
         alignSelf: align === "left" ? "flex-start" : "flex-end",
-        justifyContent: align === "right" ? "flex-end" : "flex-start",
+        justifyContent: align === "left" ? "flex-start" : "flex-end",
       }}
     >
       <StyledChatBubble>{children}</StyledChatBubble>

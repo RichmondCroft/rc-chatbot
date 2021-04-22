@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { COLOR, SPACER, BORDER } from "../../variables";
+import { COLOR, SPACER, BORDER } from "../../constants";
+import { M } from "../../types";
 
 export const ChatBoxWrapper = styled.div`
   display: flex;
@@ -19,6 +20,12 @@ export const MessagesWrapper = styled.div`
   &::-webkit-scrollbar {
     width: 0rem;
   }
+`;
+
+export const MessageArea = styled.div<M>`
+  display: flex;
+  justify-content: ${(props) =>
+    props.align === "left" ? "flex-start" : "flex-end"};
 `;
 
 export const ErrorWrapper = styled.div`
