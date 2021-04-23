@@ -1,5 +1,5 @@
 {
-  "name": "rc-chatbot",
+  "name": "@rc/chatbot",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
