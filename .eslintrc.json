@@ -16,7 +16,6 @@
   "plugins": ["react", "@typescript-eslint", "jest"],
   "rules": {
     // note you must disable the base rule as it can report incorrect errors
-    "no-unused-vars": "off",
     "no-use-before-define": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
     "semi": ["error", "always"],

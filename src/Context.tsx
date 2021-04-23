@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
-import { GlobalContext } from "./types";
+import { GlobalContext, addToGlobalFunc } from "./types";
 
 export interface ChatBotContextProps {
   global: GlobalContext | null;
-  addToGlobal: (name?: string, value?: string | string[]) => void;
+  addToGlobal: addToGlobalFunc;
 }
 
 export const ChatBotContext = createContext<ChatBotContextProps>({

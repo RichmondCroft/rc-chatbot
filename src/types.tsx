@@ -24,6 +24,11 @@ export interface GlobalContext {}
 
 export type sendMessageFunc = (message: string) => void;
 
+export type addToGlobalFunc = (
+  name?: string,
+  value?: string | string[]
+) => void;
+
 export interface M {
   align: string;
 }

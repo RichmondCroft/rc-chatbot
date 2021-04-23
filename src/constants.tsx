@@ -1,9 +1,9 @@
-export const SPACER: string = "1rem";
+export const SPACER = "1rem";
 
-export const BORDER: string = "2px solid #000";
-export const BORDER_RADIUS: string = "3px";
+export const BORDER = "2px solid #000";
+export const BORDER_RADIUS = "3px";
 
-export const BOX_SHADOW: string =
+export const BOX_SHADOW =
   "rgb(23 43 77 / 20%) 0px 1px 1px, rgb(23 43 77 / 20%) 0px 0px 1px";
 
 export const COLOR = {
@@ -22,10 +22,11 @@ export const FONT_WEIGHT = {
 };
 
 export const AvatarCompSize = {
-  max_height:"4rem",
-  max_width:"4rem"
+  max_height: "4rem",
+  max_width: "4rem",
 };
+
 export const AvatarImgSize = {
-  height:"3rem",
-  width:"3rem"
+  height: "3rem",
+  width: "3rem",
 };
