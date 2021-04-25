@@ -18,10 +18,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "declaration": true
+    "jsx": "react-jsx"
   },
-  "include": [
-    "src"
+  "include": ["src/Component/**/*"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "src/**/*.stories.tsx",
+    "src/App.tsx"
   ]
 }
