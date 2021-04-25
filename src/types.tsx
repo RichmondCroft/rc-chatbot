@@ -4,5 +4,31 @@ export interface Actor {
   displayName: string;
   align: string;
   message: string;
-  imgsrc:string;
+  delay?: number;
+  input: InputObject;
+  imgsrc: string;
+}
+
+export interface InputObject {
+  type: string;
+  name?: string;
+  options?: Options[];
+}
+
+export interface Options {
+  id: number;
+  value: string;
+}
+
+export interface GlobalContext {}
+
+export type sendMessageFunc = (message: string) => void;
+
+export type addToGlobalFunc = (
+  name?: string,
+  value?: string | string[]
+) => void;
+
+export interface M {
+  align: string;
 }
