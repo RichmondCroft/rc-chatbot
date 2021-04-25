@@ -1,27 +1,34 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import styled from "styled-components";
+
+import ChatBox from "./Component/ChatBox/ChatBox";
+import { ChatBotContext } from "./Context";
+import { GlobalContext } from "./types";
+
+
+const AppWrapper = styled.div``;
 
 function App() {
+  const [global, setGlobal] = useState<GlobalContext>({});
+
+  const addToGlobal = (
+    name: string | undefined,
+    value: string | string[] | undefined
+  ) => {
+    if (!name || !value) {
+      return;
+    }
+
+    const newGlobal = { ...global, [name]: value };
+    setGlobal(newGlobal);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>src/App.tsx</code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChatBotContext.Provider value={{ global, addToGlobal }}>
+      <AppWrapper>
+        <ChatBox />
+      </AppWrapper>
+    </ChatBotContext.Provider>
   );
 }
 

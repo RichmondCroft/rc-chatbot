@@ -29,21 +29,20 @@ Danger.args = {
   children: "Danger Button",
   size: "small",
 };
-// export const Danger = ()=>{  return <Heading type="danger">Heading component</Heading>};
+
 export const Warning = Template.bind({});
 Warning.args = {
   id: "warning-button",
   children: "Warning button",
   size: "medium",
 };
-// export const Success = ()=>{ return  <Heading type="success">Heading component</Heading>};
+
 export const Success = Template.bind({});
 Success.args = {
   id: "success-button",
   children: "success button",
   size: "large",
 };
-// export const Warning = ()=>{  return <Heading type="warning">Heading component</Heading>};
 
 export const Large = Template.bind({});
 Large.args = {
