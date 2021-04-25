@@ -1,6 +1,8 @@
 import resolve from "@rollup/plugin-node-resolve";
+import babel from "rollup-plugin-babel"
 import external from "rollup-plugin-peer-deps-external";
 import typescript from "rollup-plugin-ts";
+import postcss from "rollup-plugin-postcss"
 
 export default [
 {
@@ -15,9 +17,9 @@ export default [
     }],
     plugins:[
         babel({
-            exclude:'node_modules/**',
+            exclude: 'node_modules/**',
             presets:['@babel/preset-react','@babel/preset-typescript']
-       }),
+        }),
         typescript({
             useTsconfigDeclarationDir: true,
             tsconfigOverride:{
@@ -25,7 +27,11 @@ export default [
             }
         }),
         resolve(),
-        external()
+        external(),
+        postcss({
+            minimize:true,
+            plugins:[]
+        })
 
     ]
 }   
