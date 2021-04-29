@@ -39,9 +39,13 @@ export const TextInput = (props: TextInputProps) => {
         type="text"
         name={name}
         value={value}
+        data-testid="TextInput__text-input"
         onChange={onChangeHandler}
       />
-      <SubmitButton onSubmitHandler={onSubmitHandler} />
+      <SubmitButton
+        onSubmitHandler={onSubmitHandler}
+        testid="TextInput__submit-btn"
+      />
     </InputWrapper>
   );
 };
