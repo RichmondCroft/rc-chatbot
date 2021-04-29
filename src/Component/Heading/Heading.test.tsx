@@ -4,7 +4,7 @@ import {Heading} from "./Heading";
 
 describe("Checking Heading component",()=>{
     test("should render heading component with Primary heading",()=>{
-       render(<Heading id="primary" size="medium">"Primary heading"</Heading>);
+       render(<Heading id="primary" size="medium">Primary heading</Heading>);
        expect(screen.getByTestId("Heading")).toHaveTextContent("Primary heading");
      });
 });
