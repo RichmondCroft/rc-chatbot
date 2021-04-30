@@ -44,6 +44,7 @@ export const RadioInput = (props: RadioInputProps) => {
                 type="radio"
                 name={name}
                 value={option.value}
+                data-testid={`RadioInput__${option.value}`}
                 checked={value === option.value}
                 onChange={onChangeHandler}
               />
@@ -51,7 +52,10 @@ export const RadioInput = (props: RadioInputProps) => {
             </div>
           ))}
       </div>
-      <SubmitButton onSubmitHandler={onSubmitHandler} />
+      <SubmitButton
+        testid="RadioInput__submit-btn"
+        onSubmitHandler={onSubmitHandler}
+      />
     </InputWrapper>
   );
 };
