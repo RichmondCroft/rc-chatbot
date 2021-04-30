@@ -51,16 +51,19 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
             <li key={el.value}>
               <input
                 type="checkbox"
-                key={el.id}
-                value={el.value}
                 name={name}
+                value={el.value}
+                data-testid={`CheckboxInput__${el.value}`}
                 onChange={onChangeHandler}
               />
               {el.value}
             </li>
           ))}
       </ul>
-      <SubmitButton onSubmitHandler={onSubmitHandler} />
+      <SubmitButton
+        testid="CheckboxInput__submit-btn"
+        onSubmitHandler={onSubmitHandler}
+      />
     </InputWrapper>
   );
 };
