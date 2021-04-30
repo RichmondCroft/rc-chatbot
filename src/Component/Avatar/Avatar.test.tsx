@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {render,screen} from "@testing-library/react";
 import Avatar from "./Avatar";
 
@@ -9,7 +9,7 @@ describe("Avatar Component",()=>{
     });
     test("Test Avatar component rendering image component",()=>{
         render(<Avatar order={1}/>);
-        expect(screen.getByTestId("AvatarImage")).toBeInTheDocument;
+        expect(screen.getByTestId("AvatarImage")).toBeInTheDocument();
     });
 });
 
