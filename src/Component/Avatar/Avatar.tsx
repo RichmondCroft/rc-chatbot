@@ -22,7 +22,7 @@ export const Avatar: React.FC<ImgProps> = (
 ) => {
     const { imgsrc,order } = props;
     return (
-        <ImgComp order={order}><img style={{ height: AvatarImgSize.height, width: AvatarImgSize.width, display: "block", margin: "auto" }} src={imgsrc} alt="bot" /></ImgComp>
+        <ImgComp order={order} data-testid="AvatarComponent"><img style={{ height: AvatarImgSize.height, width: AvatarImgSize.width, display: "block", margin: "auto" }} src={imgsrc} alt="bot" data-testid="AvatarImage"/></ImgComp>
     );
 };
 
