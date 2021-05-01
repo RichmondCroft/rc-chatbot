@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import { CheckboxInput } from "./CheckboxInput";
 
-describe("Checkig CheckboxInput component", () => {
+describe("Checking CheckboxInput component", () => {
   const mockSendMessage = jest.fn();
   const mockOptions = [
     { id: 1, value: "Option1" },
