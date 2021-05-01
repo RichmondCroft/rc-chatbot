@@ -22,7 +22,7 @@ const ChatBubbleWrapper = styled.div`
   position: relative;
   margin-top: ${SPACER};
   display: flex;
-  order:1;
+  order: 1;
 `;
 
 const StyledChatBubble = styled.div`
@@ -46,7 +46,7 @@ const ChatBubbleHeader = styled.div`
 export const ChatBubble: React.FC<ChatBubbleProps> = (
   props: ChatBubbleProps
 ) => {
-  const { children, id, displayName, align } = props;
+  const { children, id, displayName, align, messageId } = props;
 
   return (
     <ChatBubbleWrapper
@@ -55,7 +55,9 @@ export const ChatBubble: React.FC<ChatBubbleProps> = (
         justifyContent: align === "left" ? "flex-start" : "flex-end",
       }}
     >
-      <StyledChatBubble>{children}</StyledChatBubble>
+      <StyledChatBubble data-testid={`ChatBubble__${messageId}`}>
+        {children}
+      </StyledChatBubble>
       <ChatBubbleHeader>{id !== "user" && displayName}</ChatBubbleHeader>
     </ChatBubbleWrapper>
   );

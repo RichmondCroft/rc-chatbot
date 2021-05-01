@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 import { RadioInput } from "./RadioInput";
 
-describe("Checkig RadioInput component", () => {
+describe("Checking RadioInput component", () => {
   const mockSendMessage = jest.fn();
   const mockOptions = [
     { id: 1, value: "Option1" },
