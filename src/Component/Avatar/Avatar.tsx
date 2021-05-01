@@ -4,16 +4,24 @@ import { AvatarCompSize, AvatarImgSize } from "../../constants";
 
 export interface ImgProps {
     imgsrc?: string;
-    order: number
+    order?: number
 };
 
 const ImgComp = styled.div<ImgProps>`
-height:${AvatarCompSize.max_height}px;
-width:${AvatarCompSize.max_width}px;
+height:${AvatarCompSize.max_height};
+width:${AvatarCompSize.max_width};
 border-radius:50%;
 display:flex;
 align-item:center;
-order:${props=>props.order};
+order:${props=>props.order?props.order:1};
+`;
+
+const Img = styled.img<ImgProps>`
+height:${AvatarImgSize.height};
+width:${AvatarImgSize.width};
+display:'block';
+src:${props=>props.imgsrc};
+margin:'auto';
 `;
 
 
@@ -22,7 +30,7 @@ export const Avatar: React.FC<ImgProps> = (
 ) => {
     const { imgsrc,order } = props;
     return (
-        <ImgComp order={order} data-testid="AvatarComponent"><img style={{ height: AvatarImgSize.height, width: AvatarImgSize.width, display: "block", margin: "auto" }} src={imgsrc} alt="bot" data-testid="AvatarImage"/></ImgComp>
+        <ImgComp order={order} data-testid="AvatarComponent"><Img src={imgsrc} data-testid="AvatarImage"/></ImgComp>
     );
 };
 
