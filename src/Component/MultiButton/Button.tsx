@@ -2,12 +2,10 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { COLOR, FONT_SIZE, SPACE } from "../../styles";
 
-interface Props {
-    id: string;
+export interface Props {
     children: ReactNode;
-    // onClick: (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     onClick: () => void;
-
+    id: string;
 };
 
 const ButtonStyles = styled.button`
@@ -18,9 +16,7 @@ const ButtonStyles = styled.button`
  margin:${SPACE.S};
 `;
 
-export const Button: React.FC<Props> = ({
-    id,
-    children,
-    onClick,
-}: Props) => <ButtonStyles id={id} onClick={onClick}>{children}</ButtonStyles>;
+export const Button: React.FC<Props> = ({ id, children, onClick = () => {} } : Props) =>(
+<ButtonStyles id={id} onClick={onClick} data-testid="MultiButton">{children}</ButtonStyles>) ;
+
 export default Button;
