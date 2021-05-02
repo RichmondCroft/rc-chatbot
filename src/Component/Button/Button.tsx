@@ -5,8 +5,7 @@ import { COLOR, buttonHW, TextColor, SPACE, FONT_SIZE } from "../../styles";
 export interface ButtonProps {
   id: string;
   children: ReactNode;
-  size: String;
-  // onclick: () => void;
+  size: string;
 };
 export const ButtonComp = styled("button") <ButtonProps>`
  background-color:${props => {
@@ -62,15 +61,13 @@ export const ButtonComp = styled("button") <ButtonProps>`
   border: 0;
   border-radius: ${SPACE.XS};
 `;
-// const handleClick = () => {
-//   console.log("button Clicked");
-// };
+
 
 export const Button: React.FC<ButtonProps> = ({
   id = "primary-button",
   children = "button",
   size = "medium",
-  // onclick,
-}: ButtonProps) => (
-  <ButtonComp id={id} size={size}>{children}</ButtonComp>
-);
+}: ButtonProps) => <ButtonComp id={id} size={size} data-testid="ButtonComponent">{children}</ButtonComp>;
+
+
+export default Button;
