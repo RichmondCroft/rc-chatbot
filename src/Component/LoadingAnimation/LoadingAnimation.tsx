@@ -53,7 +53,7 @@ const SpinnerWrapper = styled.div`
 
 function LoadingAnimation() {
   return (
-    <SpinnerWrapper>
+    <SpinnerWrapper data-testid="LoadingAnimation">
       <div className="bounce1" />
       <div className="bounce2" />
       <div className="bounce3" />
