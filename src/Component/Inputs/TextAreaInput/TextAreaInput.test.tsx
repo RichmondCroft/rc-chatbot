@@ -1,5 +1,3 @@
-import React from "react";
-
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -8,55 +6,48 @@ import { TextAreaInput } from "./TextAreaInput";
 describe("Checking TextAreaInput component", () => {
   const mockSendMessage = jest.fn();
 
-  it("should render textarea input component", () => {
+  beforeEach(() => {
     render(<TextAreaInput name="title" sendMessage={mockSendMessage} />);
+  });
 
-    expect(screen.getByTestId("TextAreaInput__text-input")).toHaveValue("");
+  it("should render textarea input component", () => {
+    const textAreaInput = screen.getByTestId("TextAreaInput__text-input");
 
-    userEvent.type(
-      screen.getByTestId("TextAreaInput__text-input"),
-      "Tests{backspace} string{enter} input"
-    );
+    expect(textAreaInput).toHaveValue("");
+
+    userEvent.type(textAreaInput, "Tests{backspace} string{enter} input");
 
     expect(mockSendMessage).not.toHaveBeenCalled();
-    expect(screen.getByTestId("TextAreaInput__text-input")).toHaveValue(
-      "Test string\n input"
-    );
+    expect(textAreaInput).toHaveValue("Test string\n input");
   });
 
   it("should empty input field after sending message", () => {
-    render(<TextAreaInput name="title" sendMessage={mockSendMessage} />);
+    const textAreaInput = screen.getByTestId("TextAreaInput__text-input");
+    const submitButton = screen.getByTestId("TextAreaInput__submit-btn");
 
-    userEvent.type(
-      screen.getByTestId("TextAreaInput__text-input"),
-      "Test string input"
-    );
-    fireEvent.click(screen.getByTestId("TextAreaInput__submit-btn"));
+    userEvent.type(textAreaInput, "Test string input");
+    fireEvent.click(submitButton);
 
     expect(mockSendMessage).toHaveBeenCalled();
     expect(mockSendMessage).toHaveBeenCalledWith("Test string input");
-    expect(screen.getByTestId("TextAreaInput__text-input")).toHaveValue("");
+    expect(textAreaInput).toHaveValue("");
   });
 
   it("should not send message if field is empty", () => {
-    render(<TextAreaInput name="title" sendMessage={mockSendMessage} />);
+    const textAreaInput = screen.getByTestId("TextAreaInput__text-input");
+    const submitButton = screen.getByTestId("TextAreaInput__submit-btn");
 
-    fireEvent.click(screen.getByTestId("TextAreaInput__submit-btn"));
+    fireEvent.click(submitButton);
 
     expect(mockSendMessage).not.toHaveBeenCalled();
-    expect(screen.getByTestId("TextAreaInput__text-input")).toHaveValue("");
+    expect(textAreaInput).toHaveValue("");
   });
 
   it("should paste text in input field", () => {
-    render(<TextAreaInput name="title" sendMessage={mockSendMessage} />);
+    const textAreaInput = screen.getByTestId("TextAreaInput__text-input");
 
-    userEvent.paste(
-      screen.getByTestId("TextAreaInput__text-input"),
-      "Copied text"
-    );
+    userEvent.paste(textAreaInput, "Copied text");
 
-    expect(screen.getByTestId("TextAreaInput__text-input")).toHaveValue(
-      "Copied text"
-    );
+    expect(textAreaInput).toHaveValue("Copied text");
   });
 });
