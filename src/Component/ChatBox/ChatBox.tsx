@@ -127,7 +127,7 @@ const ChatBox = () => {
   }
 
   return (
-    <ChatBoxWrapper data-testid="ChatBox">
+    <ChatBoxWrapper data-testid="ChatBox__wrapper">
       <MessagesWrapper ref={messagesWrapperRef}>
         {messageArray.map((el) => (
           <MessageArea align={el.align} key={el.message}>
