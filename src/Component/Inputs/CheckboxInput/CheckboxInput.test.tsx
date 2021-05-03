@@ -1,5 +1,3 @@
-import React from "react";
-
 import { render, screen, fireEvent } from "@testing-library/react";
 
 import { CheckboxInput } from "./CheckboxInput";
@@ -12,15 +10,17 @@ describe("Checking CheckboxInput component", () => {
     { id: 3, value: "Option3" },
   ];
 
-  it("should render checkbox input component", () => {
+  beforeEach(() =>
     render(
       <CheckboxInput
         name="title"
         options={mockOptions}
         sendMessage={mockSendMessage}
       />
-    );
+    )
+  );
 
+  it("should render checkbox input component", () => {
     const option1 = screen.getByTestId("CheckboxInput__Option1");
 
     fireEvent.click(option1);
@@ -30,51 +30,31 @@ describe("Checking CheckboxInput component", () => {
   });
 
   it("should not send message if no option is selected", () => {
-    render(
-      <CheckboxInput
-        name="title"
-        options={mockOptions}
-        sendMessage={mockSendMessage}
-      />
-    );
+    const submitButton = screen.getByTestId("CheckboxInput__submit-btn");
 
-    fireEvent.click(screen.getByTestId("CheckboxInput__submit-btn"));
+    fireEvent.click(submitButton);
 
     expect(mockSendMessage).not.toHaveBeenCalled();
   });
 
   it("should send message if option is selected", () => {
-    render(
-      <CheckboxInput
-        name="title"
-        options={mockOptions}
-        sendMessage={mockSendMessage}
-      />
-    );
-
     const option1 = screen.getByTestId("CheckboxInput__Option1");
+    const submitButton = screen.getByTestId("CheckboxInput__submit-btn");
 
     fireEvent.click(option1);
     expect(option1).toBeChecked();
 
-    fireEvent.click(screen.getByTestId("CheckboxInput__submit-btn"));
+    fireEvent.click(submitButton);
 
     expect(mockSendMessage).toHaveBeenCalled();
     expect(mockSendMessage).toHaveBeenCalledWith("Option1");
   });
 
   it("should send message with correct option if options are selected", () => {
-    render(
-      <CheckboxInput
-        name="title"
-        options={mockOptions}
-        sendMessage={mockSendMessage}
-      />
-    );
-
     const option1 = screen.getByTestId("CheckboxInput__Option1");
     const option2 = screen.getByTestId("CheckboxInput__Option2");
     const option3 = screen.getByTestId("CheckboxInput__Option3");
+    const submitButton = screen.getByTestId("CheckboxInput__submit-btn");
 
     fireEvent.click(option2);
     fireEvent.click(option3);
@@ -85,7 +65,7 @@ describe("Checking CheckboxInput component", () => {
     expect(option2).toBeChecked();
     expect(option3).not.toBeChecked();
 
-    fireEvent.click(screen.getByTestId("CheckboxInput__submit-btn"));
+    fireEvent.click(submitButton);
 
     expect(mockSendMessage).toHaveBeenCalled();
     expect(mockSendMessage).toHaveBeenCalledWith("Option2, Option1");
