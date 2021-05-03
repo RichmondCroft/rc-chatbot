@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const SpinnerWrapper = styled.div`
@@ -53,7 +52,7 @@ const SpinnerWrapper = styled.div`
 
 function LoadingAnimation() {
   return (
-    <SpinnerWrapper data-testid="LoadingAnimation">
+    <SpinnerWrapper data-testid="LoadingAnimation__wrapper">
       <div className="bounce1" />
       <div className="bounce2" />
       <div className="bounce3" />
