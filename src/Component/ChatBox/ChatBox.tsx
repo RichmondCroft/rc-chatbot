@@ -132,7 +132,7 @@ const ChatBox = () => {
         {messageArray.map((el) => (
           <>
             <MessageArea align={el.align}>
-              <Avatar imgsrc={el.imgsrc} order={el.align === "left" ? 1 : 2} />
+              <Avatar imgSrc={el.imgsrc} align={el.align === "left" ? "left" : "right"} />
               <ChatBubble
                 key={el.message}
                 id={el.id}
