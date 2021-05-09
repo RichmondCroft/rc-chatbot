@@ -13,11 +13,11 @@ const Template : Story<ImgProps> = (args) =><Avatar {...args}/>;
 
 export const BotAvatar = Template.bind({});
 BotAvatar.args = {
-  imgsrc: BotImg,
-  order: 1,
+  imgSrc: BotImg,
+  align: "left",
 };
 export const UserAvatar = Template.bind({});
 UserAvatar.args = {
-  imgsrc: UserImg,
-  order: 1,
+  imgSrc: UserImg,
+  align: "left",
 };
