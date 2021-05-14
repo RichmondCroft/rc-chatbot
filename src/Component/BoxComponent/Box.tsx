@@ -58,7 +58,7 @@ background-color:${props => {
 
 export const Box: React.FC<BoxProps> = (props: BoxProps) => {
   const {size,id,children} = props;
-  return (<BoxComp size={size} id={id} data-testid="BoxComponent">{children}</BoxComp>);
+  return (<BoxComp size={size} id={id} data-testid="Box_component">{children}</BoxComp>);
 };
 
 export default Box;
