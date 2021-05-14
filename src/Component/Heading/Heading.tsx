@@ -69,4 +69,4 @@ export const Heading: React.FC<HeadingProp> = ({
   id = "primary-heading",
   size = "medium",
  
-}: HeadingProp) => <HeadingComp id={id} size={size} data-testid="Heading">{children}</HeadingComp>;
+}: HeadingProp) => <HeadingComp id={id} size={size} data-testid="Heading_text">{children}</HeadingComp>;
