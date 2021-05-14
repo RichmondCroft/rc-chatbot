@@ -67,7 +67,7 @@ export const Button: React.FC<ButtonProps> = ({
   id = "primary-button",
   children = "button",
   size = "medium",
-}: ButtonProps) => <ButtonComp id={id} size={size} data-testid="ButtonComponent">{children}</ButtonComp>;
+}: ButtonProps) => <ButtonComp id={id} size={size} data-testid="Button_component">{children}</ButtonComp>;
 
 
 export default Button;

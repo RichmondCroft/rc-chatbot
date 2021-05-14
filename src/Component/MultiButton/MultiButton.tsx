@@ -17,6 +17,6 @@ const ButtonStyles = styled.button`
 `;
 
 export const Button: React.FC<Props> = ({ id, children, onClick = () => {} } : Props) =>(
-<ButtonStyles id={id} onClick={onClick} data-testid="MultiButton">{children}</ButtonStyles>) ;
+<ButtonStyles id={id} onClick={onClick} data-testid="MultiButton_component">{children}</ButtonStyles>) ;
 
 export default Button;
