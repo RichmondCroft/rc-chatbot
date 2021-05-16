@@ -13,18 +13,18 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
-          
+          node-version: "14.x"
+          registry-url: "https://registry.npmjs.org"
+
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-    
+
       - run: yarn install
       - run: yarn lint
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      
-      
 
-      
+      - name: Run tests
+        run: yarn test
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
