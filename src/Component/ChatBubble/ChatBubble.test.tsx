@@ -15,7 +15,7 @@ describe("Checking ChatBubble component", () => {
     },
   };
 
-  it("should render chat bubble component", () => {
+  beforeEach(() =>
     render(
       <ChatBubble
         id={mockMessageObj.id}
@@ -25,10 +25,18 @@ describe("Checking ChatBubble component", () => {
       >
         {mockMessageObj.message}
       </ChatBubble>
-    );
+    )
+  );
 
+  it("should render chat bubble component", () => {
     expect(screen.getByTestId("ChatBubble__1")).toHaveTextContent(
       "Test message"
+    );
+  });
+
+  it("should align chat bubble to right", () => {
+    expect(screen.getByTestId("ChatBubble__Wrapper")).toHaveStyle(
+      "justify-content:flex-end"
     );
   });
 });
