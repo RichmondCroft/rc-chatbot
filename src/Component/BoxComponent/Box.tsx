@@ -5,7 +5,7 @@ import { COLOR, boxHW, TextColor } from "../../styles";
 export interface BoxProps {
   id: string;
   children: ReactNode;
-  size: String;
+  size: string;
 };
 export const BoxComp = styled("div") <BoxProps>`
 background-color:${props => {
@@ -22,9 +22,7 @@ background-color:${props => {
       return COLOR.warning;
     default:
       return COLOR.primary;    
-  }
-  
-
+    }
   }};
   height:${props => {
     if (props.size === "small") {
@@ -35,11 +33,8 @@ background-color:${props => {
     if (props.size === "large") {
       return boxHW.height.large;
     }
-
     return boxHW.height.medium;
-
-  }
-
+    }
   };
   width:${props => {
     if (props.size === "small") {
@@ -61,11 +56,9 @@ background-color:${props => {
   text-align:center;
 `;
 
-export const Box: React.FC<BoxProps> = ({
-  id,
-  children,
-  size = "small",
-}: BoxProps) => (
+export const Box: React.FC<BoxProps> = (props: BoxProps) => {
+  const {size,id,children} = props;
+  return (<BoxComp size={size} id={id} data-testid="Box_component">{children}</BoxComp>);
+};
 
-  <BoxComp size={size} id={id}>{children}</BoxComp>
-);
+export default Box;

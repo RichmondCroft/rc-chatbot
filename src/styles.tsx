@@ -1,9 +1,9 @@
 export const COLOR={
     primary:"#00b4d8",
-    secondary:"#00b4d8",
-    danger:"#00b4d8",
-    success:"#00b4d8",
-    warning:"#00b4d8",
+    secondary:"#2d4059",
+    danger:"#e84545",
+    success:"#99ddcc",
+    warning:"#ffd460",
 };
 export const boxHW = {
       height:{
