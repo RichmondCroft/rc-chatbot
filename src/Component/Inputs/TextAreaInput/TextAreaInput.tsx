@@ -39,9 +39,13 @@ export const TextAreaInput = (props: TextAreaInputProps) => {
         rows={2}
         name={name}
         value={value}
+        data-testid="TextAreaInput__text-input"
         onChange={onChangeHandler}
       />
-      <SubmitButton onSubmitHandler={onSubmitHandler} />
+      <SubmitButton
+        testid="TextAreaInput__submit-btn"
+        onSubmitHandler={onSubmitHandler}
+      />
     </InputWrapper>
   );
 };
