@@ -54,6 +54,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = (
         alignSelf: align === "left" ? "flex-start" : "flex-end",
         justifyContent: align === "left" ? "flex-start" : "flex-end",
       }}
+      data-testid="ChatBubble__Wrapper"
     >
       <StyledChatBubble data-testid={`ChatBubble__${messageId}`}>
         {children}

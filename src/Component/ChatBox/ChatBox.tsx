@@ -131,7 +131,10 @@ const ChatBox = () => {
       <MessagesWrapper ref={messagesWrapperRef}>
         {messageArray.map((el) => (
           <MessageArea align={el.align} key={el.message}>
-            <Avatar imgsrc={el.imgsrc} order={el.align === "left" ? 1 : 2} />
+            <Avatar
+              imgSrc={el.imgsrc}
+              align={el.align === "left" ? "left" : "right"}
+            />
             <ChatBubble
               id={el.id}
               messageId={el.messageId}

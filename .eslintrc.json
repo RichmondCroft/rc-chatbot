@@ -24,6 +24,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "import/extensions": [1, "never"],
     "react/jsx-props-no-spreading": [0]
   },
