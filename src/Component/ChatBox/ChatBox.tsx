@@ -41,7 +41,7 @@ const ChatBox = () => {
     }
 
     const messageObj: Actor = {
-      messageId: 1,
+      messageId: 101,
       id: "user",
       displayName: "John Doe",
       align: "right",
@@ -127,23 +127,23 @@ const ChatBox = () => {
   }
 
   return (
-    <ChatBoxWrapper>
+    <ChatBoxWrapper data-testid="ChatBox__wrapper">
       <MessagesWrapper ref={messagesWrapperRef}>
         {messageArray.map((el) => (
-          <>
-            <MessageArea align={el.align}>
-              <Avatar imgSrc={el.imgsrc} align={el.align === "left" ? "left" : "right"} />
-              <ChatBubble
-                key={el.message}
-                id={el.id}
-                messageId={el.messageId}
-                displayName={el.displayName}
-                align={el.align}
-              >
-                {el.message}
-              </ChatBubble>
-            </MessageArea>
-          </>
+          <MessageArea align={el.align} key={el.message}>
+            <Avatar
+              imgSrc={el.imgsrc}
+              align={el.align === "left" ? "left" : "right"}
+            />
+            <ChatBubble
+              id={el.id}
+              messageId={el.messageId}
+              displayName={el.displayName}
+              align={el.align}
+            >
+              {el.message}
+            </ChatBubble>
+          </MessageArea>
         ))}
         {loading && (
           <ChatBubble
