@@ -16,9 +16,9 @@ describe("Checking TextAreaInput component", () => {
     expect(textAreaInput).toHaveValue("");
 
     userEvent.type(textAreaInput, "Tests{backspace} string{enter} input");
-
-    expect(mockSendMessage).not.toHaveBeenCalled();
+    expect(mockSendMessage).not.toBeCalled();
     expect(textAreaInput).toHaveValue("Test string\n input");
+    
   });
 
   it("should empty input field after sending message", () => {
@@ -50,4 +50,13 @@ describe("Checking TextAreaInput component", () => {
 
     expect(textAreaInput).toHaveValue("Copied text");
   });
+   it("should test for enter key press event", () =>{
+    const textAreaInput = screen.getByTestId("TextAreaInput__text-input");
+    userEvent.type(textAreaInput, "Test string input");
+    fireEvent.keyPress(textAreaInput,{key:"Enter", code:13, charCode:13 });
+    expect(mockSendMessage).toHaveBeenCalled();
+    expect(mockSendMessage).toHaveBeenCalledWith("Test string input");
+    expect(textAreaInput).toHaveValue("");
+
+   });
 });
