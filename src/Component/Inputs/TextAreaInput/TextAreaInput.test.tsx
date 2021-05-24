@@ -16,7 +16,7 @@ describe("Checking TextAreaInput component", () => {
     expect(textAreaInput).toHaveValue("");
 
     userEvent.type(textAreaInput, "Tests{backspace} string{enter} input");
-    expect(mockSendMessage).not.toBeCalled();
+    expect(mockSendMessage).not.toHaveBeenCalled();
     expect(textAreaInput).toHaveValue("Test string\n input");
     
   });

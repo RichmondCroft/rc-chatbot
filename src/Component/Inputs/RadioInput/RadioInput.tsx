@@ -33,6 +33,11 @@ export const RadioInput = (props: RadioInputProps) => {
     sendMessage(value);
     setValue("");
   };
+  const handleKeyPress = (e:React.KeyboardEvent<HTMLInputElement>)=>{
+    if(e.charCode === 13 ){
+      onSubmitHandler();
+    }
+  };
 
   return (
     <InputWrapper>
@@ -47,6 +52,7 @@ export const RadioInput = (props: RadioInputProps) => {
                 data-testid={`RadioInput__${option.value}`}
                 checked={value === option.value}
                 onChange={onChangeHandler}
+                onKeyPress={e=>handleKeyPress(e)}
               />
               {option.value}
             </div>
