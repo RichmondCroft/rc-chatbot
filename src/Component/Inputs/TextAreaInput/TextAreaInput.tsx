@@ -32,6 +32,11 @@ export const TextAreaInput = (props: TextAreaInputProps) => {
     sendMessage(value);
     setValue("");
   };
+  const handleKeyPress = (e:React.KeyboardEvent<HTMLTextAreaElement>)=>{
+    if(e.charCode === 13){
+      onSubmitHandler();
+    }
+  };
 
   return (
     <InputWrapper>
@@ -41,6 +46,7 @@ export const TextAreaInput = (props: TextAreaInputProps) => {
         value={value}
         data-testid="TextAreaInput__text-input"
         onChange={onChangeHandler}
+        onKeyPress={e=>handleKeyPress(e)}
       />
       <SubmitButton
         testid="TextAreaInput__submit-btn"

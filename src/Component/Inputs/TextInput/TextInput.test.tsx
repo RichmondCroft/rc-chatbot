@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { TextInput } from "./TextInput";
@@ -45,5 +45,14 @@ describe("Checking text input component", () => {
     expect(screen.getByTestId("TextInput__text-input")).toHaveValue(
       "Copied text"
     );
+  });
+  it("Should test for enter key press event ", () => {
+    render(<TextInput name="title" sendMessage={mockSendMessage} />);
+    userEvent.type(screen.getByTestId("TextInput__text-input"), "John Doe");
+    const inputElement = screen.getByTestId("TextInput__text-input");
+    fireEvent.keyPress(inputElement, { key: "Enter", code: 13, charCode: 13 });
+    expect(mockSendMessage).toHaveBeenCalled();
+    expect(mockSendMessage).toHaveBeenCalledWith("John Doe");
+    expect(screen.getByTestId("TextInput__text-input")).toHaveValue("");
   });
 });

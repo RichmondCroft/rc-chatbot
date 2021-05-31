@@ -72,4 +72,18 @@ describe("Checking RadioInput component", () => {
     expect(mockSendMessage).toHaveBeenCalled();
     expect(mockSendMessage).toHaveBeenCalledWith("Option2");
   });
+  it("should send message on enter key press",()=>{
+    const option1 = screen.getByTestId("RadioInput__Option1");
+    fireEvent.click(option1);
+    expect(option1).toBeChecked();
+    fireEvent.keyPress(option1,{key:"Enter", charCode: 13});
+    expect(mockSendMessage).toHaveBeenCalled();
+    expect(mockSendMessage).toHaveBeenCalledWith("Option1");
+
+  });
+  it("should not send empty message on enter key press",()=>{
+    const option1 = screen.getByTestId("RadioInput__Option1");
+    fireEvent.keyPress(option1,{key:"Enter", charCode: 13});
+    expect(mockSendMessage).not.toHaveBeenCalled();
+  });
 });

@@ -70,4 +70,21 @@ describe("Checking CheckboxInput component", () => {
     expect(mockSendMessage).toHaveBeenCalled();
     expect(mockSendMessage).toHaveBeenCalledWith("Option2, Option1");
   });
+  it("should not send message on enter key if no option ", () => {
+    const option1 = screen.getByTestId("CheckboxInput__Option1");
+    fireEvent.keyPress(option1,{key:"Enter",charCode:13});
+
+    expect(mockSendMessage).not.toHaveBeenCalled();
+  });
+
+  it("should send message on enter key if option is selected", () => {
+    const option1 = screen.getByTestId("CheckboxInput__Option1");
+
+    fireEvent.click(option1);
+    expect(option1).toBeChecked();
+    fireEvent.keyPress(option1,{key:"Enter",charCode:13});
+
+    expect(mockSendMessage).toHaveBeenCalled();
+    expect(mockSendMessage).toHaveBeenCalledWith("Option1");
+  });
 });

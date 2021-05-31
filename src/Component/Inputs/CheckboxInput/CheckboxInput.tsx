@@ -42,6 +42,11 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
     sendMessage(valueArr.join(", "));
     setValueArr([]);
   };
+  const handleKeyPress = (e:React.KeyboardEvent<HTMLInputElement>)=>{
+    if(e.charCode === 13){
+      onSubmitHandler();
+    }
+  };
 
   return (
     <InputWrapper>
@@ -55,6 +60,7 @@ export const CheckboxInput = (props: CheckboxInputProps) => {
                 value={el.value}
                 data-testid={`CheckboxInput__${el.value}`}
                 onChange={onChangeHandler}
+                onKeyPress={e=>handleKeyPress(e)}
               />
               {el.value}
             </li>
